@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 
 //function based component
-const Header = ({ name, children }) => {
+const Header = ({ name, children, visibility, showAdd }) => {
   function onClick() {
     console.log("click", children);
   }
@@ -13,7 +13,11 @@ const Header = ({ name, children }) => {
       <h1 style={{ color: "red", backgroundColor: "black" }}>Hello {name}</h1>
       <h2 style={headingStyle}>Hello {name}</h2>
       <Button text="Add" color="green" onClick={onClick} />
-      <Button text="NewAdd" color="blue" />
+      <Button
+        text={showAdd ? "Close" : "Open"}
+        color={showAdd ? "red" : "blue"}
+        onClick={visibility}
+      />
       <Button text="NewerAdd" />
     </header>
   );
